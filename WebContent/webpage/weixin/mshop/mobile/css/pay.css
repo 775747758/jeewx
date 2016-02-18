@@ -1,0 +1,31 @@
+/*css rest*/
+*{ font-size:14px; color:#50555b;}
+article{ background-color:#f2f2f2;}
+p{ margin:0;}
+textarea{ margin:0;}
+
+
+/*收货地址 begin*/
+.pay{background-color:#fff; width:100%; overflow:hidden; padding:14px 0; display:block;}
+.location-icon ,.pay-place{ float:left;}
+.location-icon{ width:46px; padding:15px 12px 0;}
+.pay-place{ width:76%;}
+.pay-next{ float:right; width:30px; padding:15px 10px 0;}
+.pay-name{margin-right:6px; font-weight:bold;}
+/*收货地址 end*/
+
+
+/*商品信息 begin*/
+.scroller{ margin-bottom:60px;}
+
+/*商品信息 end*/
+
+
+/*支付 begin*/
+.item-settlement{ width:100%; padding:0 3%; position:fixed;bottom:0px;background-color:#fff;overflow:hidden; overflow:hidden;}
+.item-information{float:left;}
+.item-quantity{line-height:16px; font-size:12px; color:#9c9c9c;}
+.clearing{display:block;float:right;background-color:#00afff;padding:10px 40px;font-size:16px;color:#fff; font-weight:bold;}
+.total-price{font-size:12px;}
+.item-price{color:#ff9c00;font-size:14px;}
+/*支付 end*/

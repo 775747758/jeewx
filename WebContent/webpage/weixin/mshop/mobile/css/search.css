@@ -1,0 +1,22 @@
+/*css rest*/
+*{ font-size:14px;}
+html{ background-color:#fff;}
+
+
+/*tab begin*/
+.menu{overflow:hidden}
+.menu li{float:left;width:50%;text-align:center; line-height:40px;}
+.content{width:80%;}
+.current{color:#00afff; margin:0 auto 10px; border-bottom:2px solid #00afff; background-color:#f2f2f2;}
+.others{ color:#50555b; border:none; background-color:#f2f2f2;}
+section{ padding:6px;}
+/*tab end*/
+
+/**/
+.input_shop{ line-height:20px; border:1px solid #ddd; padding:4px 8px; width:70%;}
+.search_shop{ width:22%; line-height:30px; padding:0 16px; background-color:#00afff; color:#fff; border:none; border-radius:2px;}
+
+.menu li:active{ background-color:#ddd;}
+.input_shop:active{border-color:#00afff;}
+.search_shop:active{ background-color:#039be1;}
+

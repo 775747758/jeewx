@@ -58,8 +58,7 @@ public class WeixinPhotoService implements KeyServiceI {
 
 	@Override
 	public String getKey() {
-
-		return "微信相册,微相册";
+		return "88452387微信相册,88452387微相册";
 	}
 
 }

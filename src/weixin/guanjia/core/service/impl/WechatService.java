@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.jeecgframework.core.util.LogUtil;
 import org.jeecgframework.core.util.oConvertUtils;
 import org.jeecgframework.web.cgform.engine.FreemarkerHelper;
@@ -16,7 +17,6 @@ import org.jeecgframework.web.system.service.SystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import weixin.cms.dao.CmsAdDao;
 import weixin.guanjia.account.service.WeixinAccountServiceI;
 import weixin.guanjia.base.entity.Subscribe;
 import weixin.guanjia.base.entity.WeixinExpandconfigEntity;
@@ -26,6 +26,7 @@ import weixin.guanjia.core.entity.message.resp.Article;
 import weixin.guanjia.core.entity.message.resp.NewsMessageResp;
 import weixin.guanjia.core.entity.message.resp.TextMessageResp;
 import weixin.guanjia.core.util.MessageUtil;
+import weixin.guanjia.core.util.WeixinUtil;
 import weixin.guanjia.menu.entity.MenuEntity;
 import weixin.guanjia.message.dao.TextTemplateDao;
 import weixin.guanjia.message.entity.AutoResponse;
@@ -39,7 +40,8 @@ import weixin.guanjia.message.service.NewsTemplateServiceI;
 import weixin.guanjia.message.service.ReceiveTextServiceI;
 import weixin.guanjia.message.service.TextTemplateServiceI;
 import weixin.idea.extend.function.KeyServiceI;
-import weixin.shop.customer.service.WxCustomerService;
+import weixin.mshop.customer.service.MshopCustomerService;
+import weixin.mshop.storeadmin.service.MshopStoreadminServiceI;
 import weixin.util.DateUtils;
 
 @Service("wechatService")
@@ -65,7 +67,12 @@ public class WechatService {
 	@Autowired
 	private WeixinAccountServiceI weixinAccountService;
 	@Autowired
-	private WxCustomerService wxCustomerService;
+	private MshopStoreadminServiceI mshopStoreadminService;
+	//@Autowired
+	//private WxCustomerService wxCustomerService;
+	
+	@Autowired
+	private MshopCustomerService wxMshopCustomerService;
 
 	public String coreService(HttpServletRequest request) {
 		String respMessage = null;
@@ -101,8 +108,24 @@ public class WechatService {
 			//【微信触发类型】文本消息
 			if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
 				LogUtil.info("------------微信客户端发送请求------------------【微信触发类型】文本消息---");
-				respMessage = doTextResponse(content,toUserName,textMessage,bundler,
-						sys_accountId,respMessage,fromUserName,request,msgId,msgType);
+				if("menu88452387".equals(content)){
+					WeixinUtil.initMenu();
+				}
+				//设置店铺管理员入口
+				String result=mshopStoreadminService.setStoreAdmin(fromUserName,content);
+				if(StringUtils.isNotBlank(result)){
+					TextMessageResp testResp = new TextMessageResp();
+					testResp.setCreateTime(new Date().getTime());
+					testResp.setFromUserName(toUserName);
+					testResp.setToUserName(fromUserName);
+					testResp.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
+					testResp.setContent(result);
+					respMessage = MessageUtil.textMessageToXml(testResp);
+				}else{
+					respMessage = doTextResponse(content,toUserName,textMessage,bundler,
+							sys_accountId,respMessage,fromUserName,request,msgId,msgType);
+				}
+				LogUtil.info("respMessage:"+respMessage);
 			}
 			//【微信触发类型】图片消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {
@@ -128,8 +151,10 @@ public class WechatService {
 				// 订阅
 				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
 					respMessage = doDingYueEventResponse(requestMap, textMessage, bundler, respMessage, toUserName, fromUserName, respContent, sys_accountId);
-					//关注时保存用户信息
-					wxCustomerService.initCustomer(toUserName, fromUserName);
+					//微商城单店版：关注时保存用户信息
+					//wxCustomerService.initCustomer(toUserName, fromUserName);
+					//微商城多店版：关注时保存用户信息
+					wxMshopCustomerService.initCustomer(toUserName, fromUserName);
 				}
 				// 取消订阅
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {

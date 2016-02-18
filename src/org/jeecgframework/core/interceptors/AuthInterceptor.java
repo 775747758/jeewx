@@ -70,7 +70,10 @@ public class AuthInterceptor implements HandlerInterceptor {
 	 */
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object object) throws Exception {
 		String requestPath = ResourceUtil.getRequestPath(request);// 用户访问的资源地址
-		
+		// 支付回调
+		if(requestPath.contains("mshopWechatController/mchNotify")){
+			return true;
+		}
 		HttpSession session = ContextHolderUtils.getSession();
 		Client client = ClientManager.getInstance().getClient(session.getId());
 		if(client == null){ 

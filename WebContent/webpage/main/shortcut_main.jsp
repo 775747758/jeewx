@@ -3,7 +3,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>捷微JeeWx：免费开源微信公众账号开发平台</title>
+<title>驿马生活管理后台</title>
 <t:base type="jquery,easyui,tools,DatePicker,autocomplete"></t:base>
 <link rel="shortcut icon" href="images/favicon.ico">
 <style type="text/css">
@@ -132,7 +132,7 @@ a:hover {
 <div region="north" border="false" title="" style="BACKGROUND: #A8D7E9; height: 100px; padding: 1px; overflow: hidden;">
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
-		<td align="left" style="vertical-align: text-bottom"><img src="plug-in/weixin/logo/logo_weixin2.png"> <!--
+		<td align="left" style="vertical-align: text-center"><span style="font-size:20px;text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;驿马生活管理后台</span> <!--
 		        <img src="plug-in/login/images/toplogo.png" width="550" height="52" alt="">-->
 		</td>
 		<td align="right" nowrap>
@@ -140,8 +140,18 @@ a:hover {
 			<tr style="height: 25px;" align="right">
 				<td style="" colspan="2">
 				<div style="background: url(plug-in/login/images/top_bg.jpg) no-repeat right center; float: right;">
-				<div style="float: left; line-height: 25px; margin-left: 70px;"><span style="color: #386780">当前用户:</span> <span style="color: #FFFFFF">${userName }</span>&nbsp;&nbsp;&nbsp;&nbsp; <span
-					style="color: #386780">职务:</span> <span style="color: #FFFFFF">${roleName }</span></div>
+				<div style="float: left; line-height: 25px; margin-left: 70px;">
+				<c:if test="${roleName eq '商户'}">
+					<span style="color: #386780">当前店铺:</span> 
+				</c:if>
+				<c:if test="${roleName !='商户'}">
+					<span style="color: #386780">当前管理员:</span> 
+				</c:if>
+				<span style="color: #FFFFFF">${realName }</span>
+				&nbsp;&nbsp;&nbsp;&nbsp; 
+				
+				<%-- <span style="color: #386780">职务:</span> <span style="color: #FFFFFF">${roleName }</span> --%>
+				</div>
 				<div style="float: left; margin-left: 18px;">
 				<div style="right: 0px; bottom: 0px;"><a href="javascript:void(0);" class="easyui-menubutton" menu="#layout_north_kzmbMenu" iconCls="icon-comturn" style="color: #FFFFFF">控制面板</a>&nbsp;&nbsp;<a
 					href="javascript:void(0);" class="easyui-menubutton" menu="#layout_north_zxMenu" iconCls="icon-exit" style="color: #FFFFFF">注销</a></div>
@@ -150,7 +160,7 @@ a:hover {
 					<div class="menu-sep"></div>
 					<div onclick="add('修改密码','userController.do?changepassword')">修改密码</div>
 					<div class="menu-sep"></div>	
-					<div onclick="add('修改首页风格','userController.do?changestyle')">首页风格</div>
+					<!-- <div onclick="add('修改首页风格','userController.do?changestyle')">首页风格</div> -->
 				</div>
 				<div id="layout_north_zxMenu" style="width: 100px; display: none;">
 					<div onclick="exit('loginController.do?logout','确定退出该系统吗 ?',1);">退出系统</div>
@@ -201,7 +211,7 @@ a:hover {
 </div>
 <!-- 底部 -->
 <div region="south" border="false" style="height: 25px; overflow: hidden;">
-<div align="center" style="color: #CC99FF; padding-top: 2px">&copy; 版权所有 <span class="tip"><a href="http://www.jeewx.com" title="捷微JeeWx：免费开源微信公众账号开发平台">捷微JeeWx</a> (推荐谷歌浏览器，获得更快响应速度) 技术支持:<a href="http://www.jeecg.org" title="JEECG开源社区">JEECG 开源社区</a> </span></div>
+<div align="center" style="color: #CC99FF; padding-top: 2px">&copy; 版权所有 <span class="tip"><a href="" title="内蒙古驿马电子商务服务有限责任公司">驿马生活</a> (推荐谷歌浏览器，获得更快响应速度) 技术支持:<a href="" title="Number One">Number One</a> </span></div>
 </div>
 <div id="mm" class="easyui-menu" style="width: 150px;">
 <div id="mm-tabupdate">刷新</div>

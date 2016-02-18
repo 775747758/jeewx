@@ -49,7 +49,7 @@ public class CmsService implements KeyServiceI {
 	@Override
 	public String getKey() {
 
-		return "微信CMS,CMS";
+		return "88452387微信CMS,CMS";
 	}
 
 }

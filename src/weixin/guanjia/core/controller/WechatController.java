@@ -33,7 +33,6 @@ public class WechatController {
 			@RequestParam(value = "timestamp") String timestamp,
 			@RequestParam(value = "nonce") String nonce,
 			@RequestParam(value = "echostr") String echostr) {
-
 		List<WeixinAccountEntity> weixinAccountEntities = weixinAccountService.getList(WeixinAccountEntity.class);
 		for (WeixinAccountEntity account : weixinAccountEntities) {
 			if (SignUtil.checkSignature(account.getAccounttoken(), signature,

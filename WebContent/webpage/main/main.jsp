@@ -3,7 +3,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>捷微 jeewx：免费开源微信公众账号开发平台</title>
+<title>管理后台</title>
 <t:base type="jquery,easyui,tools,DatePicker,autocomplete"></t:base>
 <link rel="shortcut icon" href="images/favicon.ico">
 <style type="text/css">
@@ -126,7 +126,7 @@ a:hover {
 </head>
 <body class="easyui-layout" style="overflow-y: hidden" scroll="no">
 <!-- 顶部-->
-<div region="north" border="false" title="JEEWX 捷微：敏捷微信开发" style="BACKGROUND: #E6E6FA; height: 85px; padding: 1px; overflow: hidden;">
+<div region="north" border="false" title="管理后台" style="BACKGROUND: #E6E6FA; height: 85px; padding: 1px; overflow: hidden;">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td align="left" style="vertical-align: text-bottom;"><img src="plug-in/weixin/logo/logo_weixin.png"></td>
@@ -184,7 +184,7 @@ a:hover {
 </div>
 <!-- 底部 -->
 <div region="south" border="false" style="height: 25px; overflow: hidden;">
-<div align="center" style="color: #CC99FF; padding-top: 2px">&copy; 版权所有 <span class="tip"><a href="http://www.jeewx.com" title="捷微 JeeWx：免费开源微信公众账号开发平台">捷微JeeWx</a> (推荐谷歌浏览器，获得更快响应速度) 技术支持:<a href="http://www.jeecg.org" title="JEECG开源社区">JEECG开源社区</a> </span></div>
+ <div class="copyright">&copy; 版权所有 <span class="tip"><a href="http://www.jeewx.com" title="内蒙古驿马电子商务服务有限责任公司">驿马生活</a> (推荐使用IE8+,谷歌浏览器可以获得更快,更安全的页面响应速度)技术支持:<a href="http://www.jeecg.org" title="Number One">Number One</a></span></div>
 </div>
 <div id="mm" class="easyui-menu" style="width: 150px;">
 <div id="mm-tabupdate">刷新</div>

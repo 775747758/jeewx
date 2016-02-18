@@ -131,7 +131,38 @@
 					    <value>zpController.do?goZhuanpan</value>
 					    <value>weixinCmsStyleController.do?upload</value>
 					    <value>newsItemController.do?newscontent</value>
-					    <value>wxShopGoodsController.do?goShop</value>
+					    <value>shopWechatController.do?goShop</value>
+					    <value>shopWechatController.do?goCategory</value>
+					    <value>shopWechatController.do?goCategoryGoods</value>
+					    <value>mshopWechatController.do?goStoreList</value>
+					    <value>mshopWechatController.do?goShop</value>
+					    <value>mshopWechatController.do?addToCart</value>
+					    <value>mshopWechatController.do?goCart</value>
+					    <value>mshopWechatController.do?test</value>
+					    <value>mshopWechatController.do?submitOrder</value>
+					    <value>mshopWechatController.do?testPay</value>
+					    <value>mshopWechatController.do?mchNotify</value>
+					    <value>mshopWechatController.do?goAddressDetail</value>
+					    <value>mshopWechatController.do?saveAddress</value>
+					    <value>mshopWechatController.do?goHelp</value>
+					    <value>mshopWechatController.do?goUserCenter</value>
+					    <value>mshopWechatController.do?orderList</value>
+					     <value>mshopWechatController.do?removeOrder</value>
+					     <value>mshopWechatController.do?pay</value>
+					     <value>mshopWechatController.do?paymentFail</value>
+					     <value>mshopWechatController.do?paymentSuccess</value>
+					     <value>mshopWechatController.do?confirmReceive</value>
+					     <value>mshopWechatController.do?goEvaluate</value>
+					     <value>mshopWechatController.do?doEvaluate</value>
+					     <value>mshopWechatController.do?goSearch</value>
+					     <value>mshopWechatController.do?doSearch</value>
+					     <value>mshopWechatController.do?goStore</value>
+					     <value>mshopWechatController.do?removeFromCart</value>
+					     <value>mshopWechatController.do?addToCart</value>
+					     <value>mshopWechatController.do?goGoodsCart</value>
+					     <value>mshopWechatController.do?removeFromCartWithSpec</value>
+					     <value>mshopWechatController.do?goOrderInput</value>
+					     <value>mshopWechatController.do?checkStoreStatus</value>
 					    <!-- 保存用户 -->
 					    <value>userController.do?saveUser</value>
 					</list>

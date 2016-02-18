@@ -1,6 +1,8 @@
 package org.jeecgframework.web.system.pojo.base;
 
 import java.sql.Timestamp;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

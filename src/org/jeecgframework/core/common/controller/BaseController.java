@@ -76,7 +76,7 @@ public class BaseController {
 		currentPage = currentPage > totalPage ? totalPage : currentPage;
 		// 清空统计函数
 		dc.setProjection(null);
-		// dc.setResultTransformer(dc.DISTINCT_ROOT_ENTITY);
+		dc.setResultTransformer(dc.DISTINCT_ROOT_ENTITY);
 		List<?> list = commonService.pageList(dc, (currentPage - 1) * pageRow,
 				pageRow);
 

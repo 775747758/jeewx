@@ -39,7 +39,7 @@ public class WeixinShopService implements KeyServiceI {
 		article.setPicUrl(bundler.getString("domain")+ "/webpage/weixin/shop/images/index.jpg");
 		System.out.println("<<<<<<<<<<<pictrl:"+bundler.getString("domain")+ "/webpage/weixin/shop/images/index.png");
 		// 此userid后期需要通过高级接口获取到微信帐号，此处先以加密后的ID为参数进行传递
-		String oauth2Url=SnsAPI.connectOauth2Authorize(account.getAccountappid(), bundler.getString("domain")+ "/wxShopGoodsController.do?goShop", true, defaultMessage.getFromUserName());
+		String oauth2Url=SnsAPI.connectOauth2Authorize(account.getAccountappid(), bundler.getString("domain")+ "/shopWechatController.do?goShop", true, defaultMessage.getFromUserName());
 		System.out.println("<<<<<<<<<<<oauth2Url:"+oauth2Url);
 		article.setUrl(oauth2Url);
 		articleList.add(article);
@@ -55,7 +55,7 @@ public class WeixinShopService implements KeyServiceI {
 
 	@Override
 	public String getKey() {
-		return "微商城，商城";
+		return "88452387微商城，88452387商城";
 	}
 
 }

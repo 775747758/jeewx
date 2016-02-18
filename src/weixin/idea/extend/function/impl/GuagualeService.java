@@ -52,7 +52,7 @@ public class GuagualeService implements KeyServiceI {
 	@Override
 	public String getKey() {
 
-		return "大转盘";
+		return "88452387大转盘";
 	}
 
 }

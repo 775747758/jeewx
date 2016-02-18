@@ -1,0 +1,126 @@
+/* rest css */
+html{ background-color:#f6f6f6;}
+*{ font-size:16px; color:#303030; text-decoration:none; margin:0; padding:0; font-family:"Helvetica Neue",Helvetica,sans-serif;}
+li{ list-style:none;}
+small{ color:#656565; font-size:80%; display:block;}
+img{ display:block;}
+input,img{border:none;}
+dd,dl,input,ul,body{ margin:0;padding:0;}
+h1{ font-size:30px;}h2{ font-size:26px;}h3{ font-size:22px;}h4{ font-size:18px;}h5{ font-size:14px;}h6{ font-size:12px;}
+p{ font-size:15px;}
+
+a:link{ text-decoration:none;}/*未被访问过的链接不显示下划线*/
+a:active{ text-decoration:none;}/*正在点击的链接文本不显示下划线*/
+a:hover{ text-decoration:none;}/*鼠标移入的链接文字不显示下划线*/
+a:visited{ text-decoration:none;}/*已被访问过链接*/
+
+.jump-container{ padding-bottom:60px;} 
+
+
+/* active */
+.jump-content .listitem li:active{ background-color:#f6f6f6;}
+.menubar .nav-menu span:active{ color:#000;}
+
+
+
+/* header */
+.jump-container header{letter-spacing:0.6px;}
+.jump-container header .titlebar{ height:44px; position:relative; background-color:#3190e8;}
+.jump-container .titlebar a{ position:absolute; top:25%; left:10px;}
+.jump-container .titlebar a img{ width:24px;height:24px; }
+.jump-container .titlebar h4{ font-weight:500; position:absolute; text-align:center; width:100%; line-height:44px; color:#fff;}
+
+
+
+/* nav */
+.menubar{ width:100%; overflow:hidden; position:fixed; bottom:0; text-align:center; background-color:#3190e8;}
+.nav-menu,.nav-menu-current{ float:left; width:25%; padding:8px 0 4px;opacity:0.7;}
+.menu-icon{ width:24px; margin:auto;}
+.menu-text{ font-size:12px; color:#e9f3fe;}
+.nav-menu-current{opacity:1;}
+.menu-text-current{ color:#fff; font-size:12px;}
+
+
+/* footer */
+
+
+
+/* banner */
+
+
+
+/* 个人信息 */
+.jump-main{ text-align:center; background-color:#b9e9ff; padding:46px 0 24px;}
+.jump-main img{ width:60px; height:60px; border-radius:50%; margin:0 auto 5px;}
+.jump-main .text{ font-size:18px; font-weight:bold;}
+.jump-main .text small{ display:block;}
+/*first*/
+.jump-column-frist{ text-align:center; background-color:#7bd6ff;}
+.jump-column-frist .listitem{ overflow:hidden; border-top:1px solid #fff;}
+.jump-column-frist .listitem li{ float:left; width:24.7%/*33.15%*/; font-weight:bold; font-size:16px; padding:10px 0;}
+/* second */
+.jump-column-second{ background-color:#fff; margin-top:10px;}
+.jump-column-second .listitem{ overflow:hidden; border-top:1px solid #f4f4f4;}
+.jump-column-second .listitem li{ float:left; width:49.8%; border-bottom:1px solid #f4f4f4; padding:12px 0;}
+.jump-column-second .listitem li .text{ float:left; padding-left:10px; font-weight:bold;}
+.jump-column-second .listitem li .img{ float:right; width:34px; height:34px; margin-right:10px;}
+
+
+
+/* 单行、双行列表 */
+.jump-content ul{ margin-top:10px;}
+.jump-content .listitem li{ border-bottom:1px solid #f4f4f4; padding:16px 10px; overflow:hidden; background-color:#fff; position:relative;}
+.iconline-arrow-right{ position:absolute; top:38%; right:10px; width:14px; height:14px; display:inline-block;}
+.iconline-function{ position:absolute; top:34%; left:10px; width:20px; height:20px; display:inline-block;}
+.double-icon-text{ padding:0 18px 0 28px;}
+/* 按钮列表 */
+/* 新闻列表 */
+/* 功能列表 */
+/* 邮件列表 */
+/* 更多列表 */
+.jump-content .listitem .appimg{ width:64px; height:64px; float:left; padding-right:8px;}
+.double-bigicon-text{ padding-right:18px;}
+
+
+/* telephone */
+.jump-content .telephone{ text-align:center;}
+.jump-content .telephone li .text{ background-color:#fff; border-top:1px solid #f4f4f4; border-bottom:1px solid #f4f4f4; padding:16px 10px;}
+.jump-content .telephone li small{ line-height:28px; color:#aaa;}
+
+
+
+/* button */
+
+
+
+/* 分页标签 */
+.jump-menu{}
+.jump-menu .menu{ overflow:hidden; text-align:center; background-color:#fff; margin-top:0; line-height:40px; border-bottom:1px solid #f4f4f4;}
+.jump-menu .menu li{ float:left; width:33.33%;}
+.jump-menu .menu .menu-current{ color:#3190e8; border-bottom:2px solid #3190e8;}
+.jump-menu .menu .menu-other{ color:#303030; border:none;}
+.jump-menu .current{}
+.jump-menu .content{}
+/*nothing*/
+.jump-nothing{ text-align:center;}
+.nothing-icon{ background-color:#e1e1e1; border-radius:50%; width:100px; height:100px; margin:60px auto 10px;}
+.nothing-img{ width:50px; height:50px; padding:25px;}
+.nothing-text{ margin-bottom:40px;}
+.nothing-button{ border:1px solid #3190e8; border-radius:2px; padding:6px 30px; color:#3190e8; background-color:#fff;}
+
+
+
+/* article */
+.jump-article{ padding:0 10px;}
+.jump-article p{ margin-bottom:8px;}
+/* 标题 */
+.jump-article h3{ font-size:17px; font-weight:400; margin-bottom:0.75em;}
+.jump-article h4{ font-size:16px; font-weight:400; margin-bottom:0.3em;}
+.jump-article h5{ font-size:15px; font-weight:400;}
+/* 英文文本 */
+.article-justify{text-align:justify;}/*默认*/
+.article-uppercase{ text-transform:uppercase;text-align:justify;}/*大写*/
+.article-lowercase{ text-transform:lowercase;text-align:justify;}/*小写*/
+.article-capitalize{ text-transform:capitalize;text-align:justify;}/*首字母大写*/
+/* 中文文本 */
+.article-indent{text-indent:2em;}

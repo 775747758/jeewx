@@ -1,4 +1,9 @@
 eclipse.preferences.version=1
+encoding//WebContent/webpage/weixin/mshop/mobile/index.jsp=UTF-8
+encoding//WebContent/webpage/weixin/mshop/mobile/orderInput.jsp=UTF-8
+encoding//WebContent/webpage/weixin/mshop/mobile/paymentFail.jsp=UTF-8
+encoding//WebContent/webpage/weixin/mshop/mobile/storeList.jsp=UTF-8
 encoding//resources/dbconfig.properties=UTF-8
+encoding//resources/sysConfig.properties=ISO-8859-1
 encoding/<project>=UTF-8
 encoding/resources=UTF-8

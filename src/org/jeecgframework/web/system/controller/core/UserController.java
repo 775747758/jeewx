@@ -50,6 +50,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import weixin.mshop.store.entity.MshopStoreEntity;
+import weixin.mshop.store.service.MshopStoreServiceI;
+
 
 /**
  * @ClassName: UserController
@@ -69,6 +72,9 @@ public class UserController {
 	private UserService userService;
 	private SystemService systemService;
 	private String message = null;
+	
+	@Autowired
+	private MshopStoreServiceI mshopStoreService;
 
 	@Autowired
 	public void setSystemService(SystemService systemService) {
@@ -198,7 +204,16 @@ public class UserController {
 			j.setSuccess(false);
 		} else {
 			try {
+				MshopStoreEntity store=mshopStoreService.findUniqueByProperty(MshopStoreEntity.class, "idUser",user.getId());
 				user.setPassword(PasswordUtil.encrypt(user.getUserName(), newpassword, PasswordUtil.getStaticSalt()));
+				if(store!=null){
+					store.setPassword(newpassword);
+				}
+				//当store不为空时，说明是商户登录后台，修改密码同时要修改商户的密码还有缓存的密码
+				/*if(store!=null){
+					store.setPassword(newpassword);
+					request.getSession().setAttribute("store", store);
+				}*/
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

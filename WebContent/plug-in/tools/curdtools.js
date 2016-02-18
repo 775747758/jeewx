@@ -191,8 +191,13 @@ function editfs(title,url) {
 }
 // 删除调用函数
 function delObj(url,name) {
+	var bool = url.indexOf("mshopGoodtypeController.do?doDel&");
 	gridname=name;
-	createdialog('删除确认 ', '确定删除该记录吗 ?', url,name);
+	if(bool>=0){
+		createdialog('删除确认 ', '系统将删除此分类以及所有此分类对应的商品，确定删除该记录吗 ?', url,name);
+	}else{
+		createdialog('删除确认 ', '确定删除该记录吗 ?', url,name);
+	}
 }
 // 删除调用函数
 function confuploadify(url, id) {

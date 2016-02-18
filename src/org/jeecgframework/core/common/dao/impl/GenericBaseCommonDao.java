@@ -714,6 +714,9 @@ public abstract class GenericBaseCommonDao<T, PK extends Serializable>
 		if (!cq.getOrdermap().isEmpty()) {
 			cq.setOrder(cq.getOrdermap());
 		}
+		
+		cq.getDetachedCriteria().setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		
 		int pageSize = cq.getPageSize();// 每页显示数
 		int curPageNO = PagerUtil.getcurPageNo(allCounts, cq.getCurPage(),
 				pageSize);// 当前页

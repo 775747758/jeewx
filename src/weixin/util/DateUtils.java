@@ -35,6 +35,7 @@ public class DateUtils extends PropertyEditorSupport {
 	"yyyyMMddHHmmss");
 	public static final SimpleDateFormat short_time_sdf = new SimpleDateFormat(
 			"HH:mm");
+	
 	public static final  SimpleDateFormat datetimeFormat = new SimpleDateFormat(
 	"yyyy-MM-dd HH:mm:ss");
 	// 以毫秒表示的时间
@@ -507,6 +508,20 @@ public class DateUtils extends PropertyEditorSupport {
 	public static String formatShortTime(Date date) {
 		return short_time_sdf.format(date);
 	}
+	
+	/**
+	 * 指定日期的默认显示，具体格式：时：分：秒
+	 * 
+	 * @param date
+	 *            指定的日期
+	 * @return 指定日期按“时：分：秒“格式显示
+	 */
+	public static String formatShortTimeDetail(Date date) {
+		return new SimpleDateFormat("HH:mm:ss").format(date);
+	}
+	
+	
+	
 
 	// ////////////////////////////////////////////////////////////////////////////
 	// parseDate
@@ -652,5 +667,32 @@ public class DateUtils extends PropertyEditorSupport {
 	    calendar.setTime(getDate());
 	    return calendar.get(Calendar.YEAR);
 	  }
+	
+	/**
+	 * 比较时间大小
+	 * @param DATE1
+	 * @param DATE2
+	 * @return
+	 */
+	public static int compareTime(String DATE1, String DATE2) {
+		DateFormat df = new SimpleDateFormat("HH:mm:ss");
+		try {
+			Date dt1 = df.parse(DATE1);
+			Date dt2 = df.parse(DATE2);
+			if (dt1.getTime() > dt2.getTime()) {
+				System.out.println("dt1 在dt2前");
+				return 1;
+			} else if (dt1.getTime() < dt2.getTime()) {
+				System.out.println("dt1在dt2后");
+				return -1;
+			} else {
+				return 0;
+			}
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+		return 0;
+	}
+
 
 }

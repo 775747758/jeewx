@@ -49,6 +49,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import weixin.guanjia.account.entity.WeixinAccountEntity;
 import weixin.guanjia.account.service.WeixinAccountServiceI;
+import weixin.mshop.store.entity.MshopStoreEntity;
+import weixin.mshop.store.service.MshopStoreServiceI;
 import weixin.util.WeiXinConstants;
 
 /**
@@ -66,6 +68,9 @@ public class LoginController extends BaseController{
 	private WeixinAccountServiceI weixinAccountService;
 	private UserService userService;
 	private String message = null;
+	
+	@Autowired
+	private MshopStoreServiceI mshopStoreService;
 
 	@Autowired
 	public void setSystemService(SystemService systemService) {
@@ -152,6 +157,9 @@ public class LoginController extends BaseController{
                         client.setUser(u);
                         ClientManager.getInstance().addClinet(session.getId(),
                                 client);
+                        //每次在登陆时，把店铺设置到session中
+                        //MshopStoreEntity store=mshopStoreService.findUniqueByProperty(MshopStoreEntity.class, "idUser",u.getId());
+                       // session.setAttribute("store"+store.getId(), store);
                         // 添加登陆日志
                         systemService.addLog(message, Globals.Log_Type_LOGIN,
                                 Globals.Log_Leavel_INFO);
@@ -193,6 +201,7 @@ public class LoginController extends BaseController{
 			}
             modelMap.put("roleName", roles);
             modelMap.put("userName", user.getUserName());
+            modelMap.put("realName", user.getRealName());
 			request.getSession().setAttribute("CKFinder_UserRole", "admin");
 			// 默认风格
 			String indexStyle = "shortcut";
