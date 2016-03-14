@@ -232,13 +232,13 @@ public class MshopWechatController extends BaseController {
 			Date endTime = store.getEndTime();
 			Date nowTime = new Date();
 			// 判断是否在营业时间范围
-			System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<now time:"+DateUtils.formatShortTimeDetail(nowTime));
 			if (DateUtils.compareTime(DateUtils.formatShortTimeDetail(nowTime), DateUtils.formatShortTimeDetail(startTime)) == 1
 					&& DateUtils.compareTime(DateUtils.formatShortTimeDetail(nowTime), DateUtils.formatShortTimeDetail(endTime))
 					== -1) {
 				mShopWechatService.addToCart(cart);
 				j.setSuccess(true);
 				return j;
+			}else{
 			}
 		}
 		j.setSuccess(false);

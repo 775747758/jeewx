@@ -176,7 +176,7 @@ function loaded () {
 							</div>
 							<div class="price" style="font-size: 16px; margin-top: 4px;">￥${goods.realPrice }</div>
 							<div class="fadd">
-									<a href="#" id="button_add" class="flying icons" rel="product_id_${goods.id}" onclick="addcart('${goods.id}','${customerId}','${goods.realPrice}','${store.id}','${goods.name}'); return false">+</a>
+									<a href="#" id="button_add" class="flying icons" rel="product_id_${goods.id}" onclick="addcart('${goods.id}','${customerId}','${goods.realPrice}','${storeId}','${goods.name}'); return false">+</a>
 									<span id="count_span" class="fnum foodnum" >0</span>
 									<a href="#" id="button_remove" class="remove icons"  " onclick="removeCart('${customerId }','${goods.id}','${goods.realPrice}'); return false">-</a>
 							</div>
@@ -195,14 +195,14 @@ function loaded () {
 						<p style="float: left; color: #000; margin: 0; line-height: 18px; padding: 8px 0 6px 10px; width: 50%;">
 						${cart.goodsName }
 						<c:if test="${not empty cart.spec }">
-							<small style="display: block; line-height: 14px; color: #aaa; margin-top: 4px;">${cart.spec }</small>
+							<small id="spec${cart.idGoods}" style="display: block; line-height: 14px; color: #aaa; margin-top: 4px;">${cart.spec }</small>
 						</c:if>
 						</p>
 						<p style="float: right; padding: 6px 10px; margin: 0;">
 							<span style="color: #ff6000; padding-top: 2px;">￥${cart.price }</span>&nbsp;&nbsp;&nbsp; 
 							<a href="#" class="remove icons" rel="product_id_60" onclick="removeCart('${customerId}','${cart.idGoods}','${cart.price}'); return false" style="border: 1px solid #aaa; border-radius: 50%; padding: 3px 8px;">-</a> 
 							<span id="cart_count_${cart.idGoods}" class="fnum foodnum" style="display:;">${cart.count }</span> 
-							<a href="#" class="flying icons" style="display:; border: 1px solid #aaa; border-radius: 50%; padding: 3px 9px;" onclick="addcart('${cart.idGoods}','${customerId}','${cart.price}','${store.id}','${cart.goodsName}'); return false">+</a>
+							<a href="#" class="flying icons" style="display:; border: 1px solid #aaa; border-radius: 50%; padding: 3px 9px;" onclick="addcart('${cart.idGoods}','${customerId}','${cart.price}','${store.Id}','${cart.goodsName}'); return false">+</a>
 						</p>
 					</div>
 					</c:forEach>
@@ -312,6 +312,7 @@ function loaded () {
 									"<div id='cart"+goodsId+"' style='overflow: hidden; border-bottom: 1px solid #ddd; padding: 4px;'>"+
 									"<p style='float: left; color: #000; margin: 0; line-height: 18px; padding: 8px 0 6px 10px; width: 50%;'>"+
 									goodName+
+									"<small id='spec"+goodsId+"' style='display: block; line-height: 14px; color: #aaa; margin-top: 4px;'>"+spec+"</small>"+
 									"</p>"+
 									"<p style='float: right; padding: 6px 10px; margin: 0;'>"+
 										"<span style='color: #ff6000; padding-top: 2px;'>￥"+price+"</span>&nbsp;&nbsp;&nbsp; "+
@@ -325,16 +326,40 @@ function loaded () {
 							//onclick='addcart('"+goodsId+"','${customerId}','"+price+"','${store.id}',"+goodName+"); return false'
 							$("#cart" + goodsId + "").find(".remove").attr("onclick","removeCart('"+customerId+"','"+goodsId+"','"+price+"')");
 							$("#cart" + goodsId + "").find(".flying").attr("onclick","addcart('"+goodsId+"','"+customerId+"','"+price+"','"+storeId+"','"+goodName+"')");
+						}else{
+							if($("#spec"+ goodsId + "").html()!=spec){
+								$("#qwe").append(" "+
+										"<div id='cart"+goodsId+"' style='overflow: hidden; border-bottom: 1px solid #ddd; padding: 4px;'>"+
+										"<p style='float: left; color: #000; margin: 0; line-height: 18px; padding: 8px 0 6px 10px; width: 50%;'>"+
+										goodName+
+										"<small id='spec"+goodsId+"' style='display: block; line-height: 14px; color: #aaa; margin-top: 4px;'>"+spec+"</small>"+
+										"</p>"+
+										"<p style='float: right; padding: 6px 10px; margin: 0;'>"+
+											"<span style='color: #ff6000; padding-top: 2px;'>￥"+price+"</span>&nbsp;&nbsp;&nbsp; "+
+											"<a href='#' class='remove icons' rel='product_id_60'  style='border: 1px solid #aaa; border-radius: 50%; padding: 3px 8px;'>-</a>"+ 
+											"<span id='cart_count_"+goodsId+"' class='fnum foodnum' style='display:;'>"+"1"+"</span> "+
+											"<a href='#' class='flying icons' style='display:; border: 1px solid #aaa; border-radius: 50%; padding: 3px 9px;' >+</a>"+
+										"</p>"+
+									"</div>");
+								
+								//onclick='removeCart("+customerId+",'"+goodsId+"','"+price+"'); return false'
+								//onclick='addcart('"+goodsId+"','${customerId}','"+price+"','${store.id}',"+goodName+"); return false'
+								$("#cart" + goodsId + "").find(".remove").attr("onclick","removeCart('"+customerId+"','"+goodsId+"','"+price+"')");
+								$("#cart" + goodsId + "").find(".flying").attr("onclick","addcart('"+goodsId+"','"+customerId+"','"+price+"','"+storeId+"','"+goodName+"')");
+							}else{
+								$("#cart_count_" + goodsId + "")
+								.html(
+										parseInt($('#cart_count_' + goodsId + "")
+												.html()) + 1);
+							}
 						}
+						
 						
 						$("#cart" + goodsId + "").find(".remove").css(
 								'display', '');
 						$("#cart" + goodsId + "").find(".foodnum").css(
 								'display', '');
-						$("#cart_count_" + goodsId + "")
-						.html(
-								parseInt($('#cart_count_' + goodsId + "")
-										.html()) + 1);
+						
 						
 						$('#total').html(accAdd($('#total').html(), price));
 						$('#items').html(parseInt($('#items').html()) + 1);
